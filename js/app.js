@@ -51,15 +51,15 @@ function check(){
   }
 }
 
-function show(name){
-  elAnimalName.innerText = name;
-  elAnimalImg.src = `../img/${name}.jpg`;
-  elAnimalDes.src = `../descriptions/${name}.txt`;
-}
-
 elForm.addEventListener('submit', (event) =>{
   event.preventDefault();
   check();
 });
 
 elSearchBtn.addEventListener('click', check);
+
+function show(name){
+  elAnimalName.innerText = name;
+  elAnimalImg.src = `../img/${name}.jpg`;
+  elAnimalDes.src = `../descriptions/${name}.txt`;
+}
