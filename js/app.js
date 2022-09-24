@@ -15,7 +15,7 @@ elThemeToggleBtn.onclick = () => {
 }
 
 function check(){
-  if(elInputVal.value.length > 2){
+  if(elInputVal.value.replace(/ /g, '').length > 2){
     switch(elInputVal.value.toLowerCase()){
       case 'tiger': show('tiger');
       elAnimalDes.innerText = 'The tiger has a muscular body with strong forelimbs, a large head and a tail that is about half the length of its body. Its pelage colouration varies between shades of orange with a white underside and distinctive vertical black stripes; the patterns of which are unique in each individual.';break;
