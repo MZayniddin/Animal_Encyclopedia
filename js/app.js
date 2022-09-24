@@ -49,6 +49,7 @@ function check(){
       
     }
   }
+}
 
 function show(name){
   elAnimalName.innerText = name;
@@ -62,7 +63,3 @@ elForm.addEventListener('submit', (event) =>{
 });
 
 elSearchBtn.addEventListener('click', check);
-
-
-
-
