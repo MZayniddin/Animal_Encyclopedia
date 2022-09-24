@@ -4,15 +4,17 @@ const elAnimalName = document.querySelector('.animal-name');
 const elAnimalImg = document.querySelector('.animal-img');
 const elAnimalDes = document.querySelector('.animal-description');
 const elThemeToggleBtn = document.querySelector('input[type="checkbox"]');
-const dictionary = document.querySelector('.dictionary');
+const elDictionary = document.querySelector('.dictionary');
+const elForm = document.querySelector('.input-wrapper');
+
 
 let isDark = true;
 elThemeToggleBtn.onclick = () => {
-  dictionary.classList.toggle('dark');
+  elDictionary.classList.toggle('dark');
   isDark = !isDark; 
 }
 
-elSearchBtn.addEventListener('click', () => {
+function check(){
   if(elInputVal.value.length > 2){
     switch(elInputVal.value.toLowerCase()){
       case 'tiger': show('tiger');
@@ -44,14 +46,23 @@ elSearchBtn.addEventListener('click', () => {
       case 'monkey': show('monkey');
       elAnimalDes.innerText = "Monkey is a common name that may refer to most mammals of the infraorder Simiiformes, also known as the simians. Traditionally, all animals in the group now known as simians are counted as monkeys except the apes, which constitutes an incomplete paraphyletic grouping.";break;
       default: elAnimalDes.innerText = 'There were no results matching the query.';
+      
     }
   }
-})
-
-
 
 function show(name){
   elAnimalName.innerText = name;
   elAnimalImg.src = `../img/${name}.jpg`;
   elAnimalDes.src = `../descriptions/${name}.txt`;
 }
+
+elForm.addEventListener('submit', (event) =>{
+  event.preventDefault();
+  check();
+});
+
+elSearchBtn.addEventListener('click', check);
+
+
+
+
