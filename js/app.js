@@ -7,12 +7,23 @@ const elThemeToggleBtn = document.querySelector('input[type="checkbox"]');
 const elDictionary = document.querySelector('.dictionary');
 const elForm = document.querySelector('.input-wrapper');
 
-
-let isDark = true;
-elThemeToggleBtn.onclick = () => {
-  elDictionary.classList.toggle('dark');
-  isDark = !isDark; 
+if(localStorage.getItem('theme') === 'light'){
+  elDictionary.classList.remove('dark');
+  elThemeToggleBtn.checked = true;
+}else {
+  elDictionary.classList.add('dark');
+  elThemeToggleBtn.checked = false;
 }
+
+elThemeToggleBtn.addEventListener('click', () => {
+  if(elThemeToggleBtn.checked === true){
+    elDictionary.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }else if(elThemeToggleBtn.checked === false) {
+    elDictionary.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  }
+});
 
 function check(){
   if(elInputVal.value.replace(/ /g, '').length > 2){
