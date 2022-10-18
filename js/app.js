@@ -10,9 +10,6 @@ const elForm = document.querySelector('.input-wrapper');
 if(localStorage.getItem('theme') === 'light'){
   elDictionary.classList.remove('dark');
   elThemeToggleBtn.checked = true;
-}else {
-  elDictionary.classList.add('dark');
-  elThemeToggleBtn.checked = false;
 }
 
 elThemeToggleBtn.addEventListener('click', () => {
